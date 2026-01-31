@@ -333,7 +333,7 @@ Process {
     Get-MsrcCvrfExploitabilityIndex -Vulnerability $PSBoundParameters['Vulnerability'] |
     ForEach-Object {
         $exploitabilityIndexTableHtml += $exploitabilityRowTemplate -f @(
-            $_.CVE #TODO - make this an href
+            "$($_.CVE)<br><a href=`"https://cve.mitre.org/cgi-bin/cvename.cgi?name=$($_.CVE)`">MITRE</a><br><a href=`"https://web.nvd.nist.gov/view/vuln/detail?vulnId=$($_.CVE)`">NVD</a>"
             $_.Title
             $_.LatestSoftwareRelease
             $_.OlderSoftwareRelease
